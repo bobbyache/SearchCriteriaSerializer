@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastSearchCriteria", "LastSearchCriteria\LastSearchCriteria.csproj", "{A1050EE5-3CA6-4D98-92F1-B6E059F8F8EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastSearchCriteriaTests", "LastSearchCriteriaTests\LastSearchCriteriaTests.csproj", "{75F30686-8344-4F72-B337-597965098ECF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1050EE5-3CA6-4D98-92F1-B6E059F8F8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1050EE5-3CA6-4D98-92F1-B6E059F8F8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1050EE5-3CA6-4D98-92F1-B6E059F8F8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1050EE5-3CA6-4D98-92F1-B6E059F8F8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75F30686-8344-4F72-B337-597965098ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75F30686-8344-4F72-B337-597965098ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75F30686-8344-4F72-B337-597965098ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75F30686-8344-4F72-B337-597965098ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
