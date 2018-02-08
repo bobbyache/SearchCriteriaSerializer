@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace LastSearchCriteria
 {
-    public abstract class SectionedCriteriaSerializer
+    public abstract class CriteriaSectionSerializer
     {
         protected CriteriaSerializer serializer = new CriteriaSerializer();
 

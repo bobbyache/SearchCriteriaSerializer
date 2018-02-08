@@ -13,7 +13,7 @@ namespace LastSearchCriteriaTests.Criteria
         Old
     }
 
-    public class BreachAgeGeneralCriteriaSection
+    public class CriteriaSection
     {
         [XmlAttribute("session")]
         public ComplianceSession Session { get; set; }

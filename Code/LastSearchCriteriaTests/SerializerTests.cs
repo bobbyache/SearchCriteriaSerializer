@@ -20,7 +20,7 @@ namespace LastSearchCriteriaTests
         {
             CriteriaSerializer serializer = new CriteriaSerializer();
 
-            BreachAgeGeneralCriteriaSection criteria = new BreachAgeGeneralCriteriaSection
+            CriteriaSection criteria = new CriteriaSection
             {
                 Session = ComplianceSession.New,
                 SessionId = 2,
@@ -29,23 +29,23 @@ namespace LastSearchCriteriaTests
                 ShowRuleGroups = false
             };
 
-            string xml = serializer.Serialize<BreachAgeGeneralCriteriaSection>(criteria);
-            BreachAgeGeneralCriteriaSection crit = serializer.Deserialize<BreachAgeGeneralCriteriaSection>(xml);
+            string xml = serializer.Serialize<CriteriaSection>(criteria);
+            CriteriaSection crit = serializer.Deserialize<CriteriaSection>(xml);
 
-            Assert.AreEqual(CompactXml("<BreachAgeGeneralCriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" />"), CompactXml(xml));
+            Assert.AreEqual(CompactXml("<CriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" />"), CompactXml(xml));
         }
 
         [TestMethod]
-        public void BreachAgeCriteria_WhenInstantiatedAndSerialized_Returns_SingleClosedXmlTag()
+        public void CriteriaSectionGroup_WhenInstantiatedAndSerialized_Returns_SingleClosedXmlTag()
         {
-            BreachAgeCriteria breachAgeCriteria = new BreachAgeCriteria();
+            CriteriaSectionGroup breachAgeCriteria = new CriteriaSectionGroup();
             breachAgeCriteria.Session = ComplianceSession.New;
             breachAgeCriteria.SessionId = 2;
             breachAgeCriteria.ShowBreachAges = true;
             breachAgeCriteria.ShowOverriddenBreaches = true;
             breachAgeCriteria.ShowRuleGroups = false;
 
-            string expectedXml = CompactXml("<BreachAgeCriteria><BreachAgeGeneralCriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" /></BreachAgeCriteria>");
+            string expectedXml = CompactXml("<CriteriaSectionGroup><CriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" /></CriteriaSectionGroup>");
             string generatedXml = CompactXml(breachAgeCriteria.Serialize());
 
             Assert.AreEqual(expectedXml, generatedXml);
@@ -57,10 +57,10 @@ namespace LastSearchCriteriaTests
         }
 
         [TestMethod]
-        public void BreachAgeCriteria_WhenInstantiated_ViaXml_Returns_Correct_Values()
+        public void CriteriaSectionGroup_WhenInstantiated_ViaXml_Returns_Correct_Values()
         {
-            string xml = "<BreachAgeCriteria><BreachAgeGeneralCriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" /></BreachAgeCriteria>";
-            BreachAgeCriteria breachAgeCriteria = new BreachAgeCriteria(xml);
+            string xml = "<CriteriaSectionGroup><CriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" /></CriteriaSectionGroup>";
+            CriteriaSectionGroup breachAgeCriteria = new CriteriaSectionGroup(xml);
 
             Assert.AreEqual(ComplianceSession.New, breachAgeCriteria.Session);
             Assert.AreEqual(2, breachAgeCriteria.SessionId);

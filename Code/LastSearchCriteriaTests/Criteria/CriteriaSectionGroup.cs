@@ -8,9 +8,9 @@ using System.Xml.Linq;
 
 namespace LastSearchCriteriaTests.Criteria
 {
-    public class BreachAgeCriteria : SectionedCriteriaSerializer
+    public class CriteriaSectionGroup : CriteriaSectionSerializer
     {
-        private BreachAgeGeneralCriteriaSection generalCriteria;
+        private CriteriaSection generalCriteria;
 
         public ComplianceSession Session
         {
@@ -41,15 +41,15 @@ namespace LastSearchCriteriaTests.Criteria
             set { generalCriteria.ShowRuleGroups = value; }
         }
 
-        public BreachAgeCriteria()
+        public CriteriaSectionGroup()
         {
-            this.generalCriteria = new BreachAgeGeneralCriteriaSection();
+            this.generalCriteria = new CriteriaSection();
         }
 
-        public BreachAgeCriteria(string xml)
+        public CriteriaSectionGroup(string xml)
         {
             XElement element = XElement.Parse(xml);
-            generalCriteria = Deserialize<BreachAgeGeneralCriteriaSection>(element);
+            generalCriteria = Deserialize<CriteriaSection>(element);
         }
 
         public string Serialize()
