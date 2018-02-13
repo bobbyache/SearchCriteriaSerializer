@@ -42,7 +42,7 @@ namespace LastSearchCriteriaTests.Criteria
         }
 
 
-        public CriteriaSectionGroup(CriteriaSectionSerializer serializer)
+        public CriteriaSectionGroup(XmlCriteriaSerializer serializer)
         {
             this.generalCriteria = new CriteriaSection();
             if (serializer == null)
@@ -50,10 +50,10 @@ namespace LastSearchCriteriaTests.Criteria
             this.serializer = serializer;
         }
 
-        private CriteriaSectionSerializer serializer;
+        private XmlCriteriaSerializer serializer;
 
 
-        public CriteriaSectionGroup(CriteriaSectionSerializer serializer, string xml)
+        public CriteriaSectionGroup(XmlCriteriaSerializer serializer, string xml)
         {
             if (serializer == null)
                 throw new ArgumentNullException("Serializer must be defined for this construct.");

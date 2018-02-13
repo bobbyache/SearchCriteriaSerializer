@@ -7,9 +7,9 @@ using System.Xml.Linq;
 
 namespace LastSearchCriteria
 {
-    public class CriteriaSectionSerializer
+    public class XmlCriteriaSerializer
     {
-        protected CriteriaSerializer serializer = new CriteriaSerializer();
+        protected XmlSerializer serializer = new XmlSerializer();
 
         public XElement Serialize<T>(T criteriaSection) where T : class
         {

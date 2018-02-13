@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace LastSearchCriteria
 {
-    public class CriteriaSerializer
+    public class XmlSerializer
     {
         public string Serialize<T>(T criteria) where T : class
         {
@@ -18,7 +18,7 @@ namespace LastSearchCriteria
                 return string.Empty;
             }
 
-            var xmlserializer = new XmlSerializer(typeof(T));
+            var xmlserializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
             var stringWriter = new StringWriter();
             var settings = new XmlWriterSettings();
 
@@ -38,7 +38,7 @@ namespace LastSearchCriteria
         {
             using (var reader = new StringReader(xml))
             {
-                var serializer = new XmlSerializer(typeof(T));
+                var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
                 return (T)serializer.Deserialize(reader);
             }
         }

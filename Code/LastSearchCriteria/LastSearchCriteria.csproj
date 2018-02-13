@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CriteriaSerializer.cs" />
+    <Compile Include="XmlSerializer.cs" />
     <Compile Include="ISerializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CriteriaSectionSerializer.cs" />
+    <Compile Include="XmlCriteriaSerializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
