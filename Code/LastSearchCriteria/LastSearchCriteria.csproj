@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICriteriaSerializer.cs" />
     <Compile Include="XmlSerializer.cs" />
     <Compile Include="ISerializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

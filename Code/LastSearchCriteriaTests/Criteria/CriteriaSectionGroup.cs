@@ -10,6 +10,7 @@ namespace LastSearchCriteriaTests.Criteria
 {
     public class CriteriaSectionGroup : ISerializable
     {
+        private ICriteriaSerializer serializer;
         private CriteriaSection generalCriteria;
 
         public ComplianceSession Session
@@ -42,7 +43,7 @@ namespace LastSearchCriteriaTests.Criteria
         }
 
 
-        public CriteriaSectionGroup(XmlCriteriaSerializer serializer)
+        public CriteriaSectionGroup(ICriteriaSerializer serializer)
         {
             this.generalCriteria = new CriteriaSection();
             if (serializer == null)
@@ -50,10 +51,7 @@ namespace LastSearchCriteriaTests.Criteria
             this.serializer = serializer;
         }
 
-        private XmlCriteriaSerializer serializer;
-
-
-        public CriteriaSectionGroup(XmlCriteriaSerializer serializer, string xml)
+        public CriteriaSectionGroup(ICriteriaSerializer serializer, string xml)
         {
             if (serializer == null)
                 throw new ArgumentNullException("Serializer must be defined for this construct.");

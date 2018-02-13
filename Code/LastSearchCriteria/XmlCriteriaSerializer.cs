@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Xml.Linq;
 
 namespace LastSearchCriteria
 {
-    public class XmlCriteriaSerializer
+    public class XmlCriteriaSerializer : ICriteriaSerializer
     {
         protected XmlSerializer serializer = new XmlSerializer();
 
