@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace LastSearchCriteria
 {
-    public class XmlSerializer
+    internal class XmlSerializer
     {
         public string Serialize<T>(T criteria) where T : class
         {

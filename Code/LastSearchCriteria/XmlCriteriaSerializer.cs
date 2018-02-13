@@ -5,7 +5,7 @@ namespace LastSearchCriteria
 {
     public class XmlCriteriaSerializer : ICriteriaSerializer
     {
-        protected XmlSerializer serializer = new XmlSerializer();
+        private XmlSerializer serializer = new XmlSerializer();
 
         public XElement Serialize<T>(T criteriaSection) where T : class
         {
