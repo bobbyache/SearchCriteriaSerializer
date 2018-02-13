@@ -38,7 +38,7 @@ namespace LastSearchCriteriaTests
         [TestMethod]
         public void CriteriaSectionGroup_WhenInstantiatedAndSerialized_Returns_SingleClosedXmlTag()
         {
-            CriteriaSectionGroup breachAgeCriteria = new CriteriaSectionGroup();
+            CriteriaSectionGroup breachAgeCriteria = new CriteriaSectionGroup(new CriteriaSectionSerializer());
             breachAgeCriteria.Session = ComplianceSession.New;
             breachAgeCriteria.SessionId = 2;
             breachAgeCriteria.ShowBreachAges = true;
@@ -60,7 +60,7 @@ namespace LastSearchCriteriaTests
         public void CriteriaSectionGroup_WhenInstantiated_ViaXml_Returns_Correct_Values()
         {
             string xml = "<CriteriaSectionGroup><CriteriaSection session=\"New\" session-id=\"2\" show-breach-ages=\"true\" show-overridden-breaches=\"true\" show-rule-groups=\"false\" /></CriteriaSectionGroup>";
-            CriteriaSectionGroup breachAgeCriteria = new CriteriaSectionGroup(xml);
+            CriteriaSectionGroup breachAgeCriteria = new CriteriaSectionGroup(new CriteriaSectionSerializer(), xml);
 
             Assert.AreEqual(ComplianceSession.New, breachAgeCriteria.Session);
             Assert.AreEqual(2, breachAgeCriteria.SessionId);

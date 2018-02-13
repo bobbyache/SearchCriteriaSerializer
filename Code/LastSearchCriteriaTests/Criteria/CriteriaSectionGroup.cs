@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace LastSearchCriteriaTests.Criteria
 {
-    public class CriteriaSectionGroup : CriteriaSectionSerializer
+    public class CriteriaSectionGroup : ISerializable
     {
         private CriteriaSection generalCriteria;
 
@@ -41,24 +41,40 @@ namespace LastSearchCriteriaTests.Criteria
             set { generalCriteria.ShowRuleGroups = value; }
         }
 
-        public CriteriaSectionGroup()
+
+        public CriteriaSectionGroup(CriteriaSectionSerializer serializer)
         {
             this.generalCriteria = new CriteriaSection();
+            if (serializer == null)
+                throw new ArgumentNullException("Serializer must be defined for this construct.");
+            this.serializer = serializer;
         }
 
-        public CriteriaSectionGroup(string xml)
+        private CriteriaSectionSerializer serializer;
+
+
+        public CriteriaSectionGroup(CriteriaSectionSerializer serializer, string xml)
         {
-            XElement element = XElement.Parse(xml);
-            generalCriteria = Deserialize<CriteriaSection>(element);
+            if (serializer == null)
+                throw new ArgumentNullException("Serializer must be defined for this construct.");
+            this.serializer = serializer;
+
+            this.Deserialize(xml);
         }
 
         public string Serialize()
         {
             XElement element = new XElement(this.GetType().Name);
 
-            element.Add(Serialize(generalCriteria));
+            element.Add(serializer.Serialize(generalCriteria));
 
             return element.ToString();
+        }
+
+        private void Deserialize(string serializedEntity)
+        {
+            XElement element = XElement.Parse(serializedEntity);
+            generalCriteria = serializer.Deserialize<CriteriaSection>(element);
         }
     }
 }

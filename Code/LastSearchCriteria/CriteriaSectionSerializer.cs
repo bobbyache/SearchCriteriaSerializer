@@ -7,16 +7,16 @@ using System.Xml.Linq;
 
 namespace LastSearchCriteria
 {
-    public abstract class CriteriaSectionSerializer
+    public class CriteriaSectionSerializer
     {
         protected CriteriaSerializer serializer = new CriteriaSerializer();
 
-        protected XElement Serialize<T>(T criteriaSection) where T : class
+        public XElement Serialize<T>(T criteriaSection) where T : class
         {
             return XElement.Parse(serializer.Serialize<T>(criteriaSection));
         }
 
-        protected T Deserialize<T>(XElement rootElement) where T : class
+        public T Deserialize<T>(XElement rootElement) where T : class
         {
             string elementName = typeof(T).Name;
             string elementXml = rootElement.Elements().Single(e => e.Name == elementName).ToString();
