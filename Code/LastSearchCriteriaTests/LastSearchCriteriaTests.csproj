@@ -56,11 +56,16 @@
     <Compile Include="Criteria\CriteriaSection.cs" />
     <Compile Include="SerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LastSearchCriteria\LastSearchCriteria.csproj">
       <Project>{a1050ee5-3ca6-4d98-92f1-b6e059f8f8ee}</Project>
       <Name>LastSearchCriteria</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlSerialize_01\XmlSerialize_01.csproj">
+      <Project>{2b9026d6-e829-4be7-b413-1c2553ab267f}</Project>
+      <Name>XmlSerialize_01</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
